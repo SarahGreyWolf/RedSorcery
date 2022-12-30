@@ -1,0 +1,13 @@
+name: AdvenGear
+version: '${version}'
+main: io.github.sarahgreywolf.advengear.AdvenGear
+api-version: 1.19
+load: STARTUP
+author: sarahgreywolf
+description: Minecraft Paper plugin that adds gear drops from enemies with random stats
+website:
+commands:
+  advengear:
+    description: Base command for AdvenGear
+    usage: /advengear
+    default: true
