@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.advengear;
+package io.github.sarahgreywolf.redsorcery;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,33 +11,31 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import io.github.sarahgreywolf.advengear.commands.HelpCommand;
-import io.github.sarahgreywolf.advengear.interfaces.ICommand;
-import io.github.sarahgreywolf.advengear.listeners.KillListener;
+import io.github.sarahgreywolf.redsorcery.commands.HelpCommand;
+import io.github.sarahgreywolf.redsorcery.interfaces.ICommand;
+import io.github.sarahgreywolf.redsorcery.listeners.KillListener;
 import net.kyori.adventure.text.Component;
 
-public final class AdvenGear extends JavaPlugin {
+public final class RedSorcery extends JavaPlugin {
 
-    public static AdvenGear plugin;
+    public static RedSorcery plugin;
     public static PluginManager pm;
-    public static String pluginPrefix = "\u00A75[AdvenGear]\u00A7r";
+    public static final String pluginPrefix = "\u00A75[RedSorcery]\u00A7r";
 
     private Map<String, ICommand> commands = new HashMap<>();
-
-    private Permissions permissions;
 
     @Override
     public void onEnable() {
         plugin = this;
         pm = getServer().getPluginManager();
         pm.registerEvents(new KillListener(), this);
-        CommandHandler advenGearCommand = new CommandHandler();
-        PluginCommand command = this.getCommand("advengear");
-        command.setExecutor(advenGearCommand);
-        command.setTabCompleter(advenGearCommand);
+        CommandHandler RedSorceryCommand = new CommandHandler();
+        PluginCommand command = this.getCommand("RedSorcery");
+        command.setExecutor(RedSorceryCommand);
+        command.setTabCompleter(RedSorceryCommand);
         command.permissionMessage(Component.text("\u00A74 You do not have permission to execute this command"));
         registerCommands();
-        permissions = new Permissions();
+        registerPermissions();
     }
 
     @Override
@@ -55,12 +53,16 @@ public final class AdvenGear extends JavaPlugin {
         commands.put(command.getName(), command);
     }
 
-    public void registerCommands() {
+    private void registerCommands() {
         this.addCommand(new HelpCommand());
     }
 
-    public Permissions getPermissions() {
-        return permissions;
+    private void registerPermissions() {
+        for (String command : this.getCommands().keySet()) {
+            pm.addPermission(new Permission("redsorcery." + this.getCommands().get(command).getPermission()));
+        }
+        pm.addPermission(new Permission("redsorcery.*"));
+        pm.addPermission(new Permission("redsorcery"));
     }
 
 }

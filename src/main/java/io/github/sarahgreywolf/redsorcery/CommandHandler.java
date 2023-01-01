@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.advengear;
+package io.github.sarahgreywolf.redsorcery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.bukkit.command.TabCompleter;
 public class CommandHandler
         implements CommandExecutor, TabCompleter {
 
-    private static AdvenGear plugin = AdvenGear.plugin;
+    private static final RedSorcery plugin = RedSorcery.plugin;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label,
@@ -22,7 +22,7 @@ public class CommandHandler
             args[i - 1] = originalArgs[i];
         }
         if (commandName == null) {
-            if (!sender.hasPermission("advengear")) {
+            if (!sender.hasPermission("RedSorcery")) {
                 sender.sendMessage(command.permissionMessage());
                 return true;
             }
@@ -30,7 +30,7 @@ public class CommandHandler
             // 54 Characters
             if (sender.getName() == "CONSOLE")
                 sb.append("\n");
-            sb.append("\u00A76----------------------").append("AdvenGear").append("----------------------\n");
+            sb.append("\u00A76----------------------").append("RedSorcery").append("----------------------\n");
             sb.append("\u00A74Author: ").append("\u00A75SarahGreyWolf").append("\n");
             sb.append("\u00A74Version: ").append("\u00A75").append(plugin.getDescription().getVersion())
                     .append("\n");
@@ -40,8 +40,8 @@ public class CommandHandler
         }
 
         if (!plugin.getCommands().containsKey(commandName)) {
-            sender.sendMessage(AdvenGear.pluginPrefix + "That command does not exist.");
-            sender.sendMessage(AdvenGear.pluginPrefix + "Usage: /advengear help");
+            sender.sendMessage(RedSorcery.pluginPrefix + "That command does not exist.");
+            sender.sendMessage(RedSorcery.pluginPrefix + "Usage: /redsorcery help");
         }
         if (sender.hasPermission(plugin.getCommands().get(commandName).getPermission()))
             plugin.getCommands().get(commandName).execute(sender, args, command.permissionMessage());

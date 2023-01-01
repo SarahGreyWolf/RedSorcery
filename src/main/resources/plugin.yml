@@ -1,13 +1,13 @@
-name: AdvenGear
+name: RedSorcery
 version: '${version}'
-main: io.github.sarahgreywolf.advengear.AdvenGear
+main: io.github.sarahgreywolf.redsorcery.RedSorcery
 api-version: 1.19
 load: STARTUP
 author: sarahgreywolf
-description: Minecraft Paper plugin that adds gear drops from enemies with random stats
+description: Minecraft Paper plugin that adds rituals to interact with the world aswell as players and their tools.
 website:
 commands:
-  advengear:
-    description: Base command for AdvenGear
-    usage: /advengear
+  RedSorcery:
+    description: Base command for RedSorcery
+    usage: /redsorcery
     default: true

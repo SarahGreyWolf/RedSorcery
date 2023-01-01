@@ -1,14 +1,13 @@
-package io.github.sarahgreywolf.advengear.interfaces;
+package io.github.sarahgreywolf.redsorcery.interfaces;
 
 import java.util.List;
 
 import org.bukkit.command.CommandSender;
 import net.kyori.adventure.text.Component;
 
-import io.github.sarahgreywolf.advengear.AdvenGear;
+import io.github.sarahgreywolf.redsorcery.RedSorcery;
 
 public interface ICommand {
-    AdvenGear plugin = AdvenGear.plugin;
 
     void execute(CommandSender commandSender, String[] args, Component permissionMessage);
 

@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'io.github.sarahgreywolf.advengear'
+group = 'io.github.sarahgreywolf.redsorcery'
 version = '1.0.0'
 
 repositories {
