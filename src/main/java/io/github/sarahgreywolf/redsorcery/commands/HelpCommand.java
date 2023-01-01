@@ -11,7 +11,6 @@ import io.github.sarahgreywolf.redsorcery.interfaces.ICommand;
 import io.github.sarahgreywolf.redsorcery.RedSorcery;
 
 public class HelpCommand implements ICommand {
-    private String commandHead = "redsorcery";
     private static final RedSorcery plugin = RedSorcery.plugin;
 
     @Override
