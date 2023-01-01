@@ -65,6 +65,8 @@ public final class RedSorcery extends JavaPlugin {
         for (String command : getCommands().keySet()) {
             pm.addPermission(new Permission("redsorcery." + getCommands().get(command).getPermission()));
         }
+        pm.addPermission(new Permission("redsorcery.commands.*"));
+        pm.addPermission(new Permission("redsorcery.rituals.*"));
         pm.addPermission(new Permission("redsorcery.*"));
         pm.addPermission(new Permission("redsorcery"));
         for (IRitual ritual : getRituals()) {

@@ -45,11 +45,11 @@ public class HaltRain implements IRitual {
                 },
                 // Second Layer (1 block above last)
                 {
-                        { 'A', 'R', 'R', 'R', 'A' },
+                        { 'Z', 'R', 'R', 'R', 'Z' },
                         { 'R', 'R', 'A', 'R', 'R' },
                         { 'R', 'A', 'Y', 'A', 'R' },
                         { 'R', 'R', 'A', 'R', 'R' },
-                        { 'A', 'R', 'R', 'R', 'A' }
+                        { 'Z', 'R', 'R', 'R', 'Z' }
                 }
         };
         return shape;
