@@ -22,7 +22,7 @@ public class CommandHandler
             args[i - 1] = originalArgs[i];
         }
         if (commandName == null) {
-            if (!sender.hasPermission("RedSorcery")) {
+            if (!sender.hasPermission("redsorcery")) {
                 sender.sendMessage(command.permissionMessage());
                 return true;
             }
@@ -40,10 +40,10 @@ public class CommandHandler
         }
 
         if (!plugin.getCommands().containsKey(commandName)) {
-            sender.sendMessage(RedSorcery.pluginPrefix + "That command does not exist.");
-            sender.sendMessage(RedSorcery.pluginPrefix + "Usage: /redsorcery help");
+            sender.sendMessage(RedSorcery.prefix + "That command does not exist.");
+            sender.sendMessage(RedSorcery.prefix + "Usage: /redsorcery help");
         }
-        if (sender.hasPermission(plugin.getCommands().get(commandName).getPermission()))
+        if (sender.hasPermission("redsorcery.commands." + plugin.getCommands().get(commandName).getPermission()))
             plugin.getCommands().get(commandName).execute(sender, args, command.permissionMessage());
         else
             sender.sendMessage(command.permissionMessage());

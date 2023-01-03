@@ -6,6 +6,8 @@ import java.util.Map;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
 import net.kyori.adventure.text.Component;
 
 import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
@@ -56,7 +58,7 @@ public class HaltRain implements IRitual {
     }
 
     @Override
-    public void execute(Player ritualActivator, World world, Object[] args, Component permissionMessage) {
+    public void execute(Player ritualActivator, World world, ItemStack[] stacks, Component permissionMessage) {
         world.setWeatherDuration(0);
     }
 
@@ -71,8 +73,8 @@ public class HaltRain implements IRitual {
     }
 
     @Override
-    public Material getActivationItem() {
-        return Material.DIAMOND;
+    public ItemStack getActivationItem() {
+        return new ItemStack(Material.DIAMOND);
     }
 
 }

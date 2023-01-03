@@ -4,7 +4,9 @@ import java.util.Map;
 
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import io.github.sarahgreywolf.redsorcery.util.ShapePos;
 import net.kyori.adventure.text.Component;
@@ -15,11 +17,11 @@ public interface IRitual {
 
     Map<Character, Material> getShapeIngredients();
 
-    Material getActivationItem();
+    ItemStack getActivationItem();
 
     char[][][] getShape();
 
-    void execute(Player ritualActivator, World world, Object[] args, Component permissionMessage);
+    void execute(Player ritualActivator, World world, ItemStack[] stacks, Component permissionMessage);
 
     String getPermission();
 

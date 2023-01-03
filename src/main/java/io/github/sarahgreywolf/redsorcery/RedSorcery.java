@@ -15,13 +15,14 @@ import io.github.sarahgreywolf.redsorcery.commands.HelpCommand;
 import io.github.sarahgreywolf.redsorcery.interfaces.ICommand;
 import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
 import io.github.sarahgreywolf.redsorcery.listeners.KillListener;
+import io.github.sarahgreywolf.redsorcery.listeners.RitualListener;
 import io.github.sarahgreywolf.redsorcery.rituals.HaltRain;
 
 public final class RedSorcery extends JavaPlugin {
 
     public static RedSorcery plugin;
     public static PluginManager pm;
-    public static final String pluginPrefix = "\u00A75[RedSorcery]\u00A7r";
+    public static final String prefix = "\u00A75[RedSorcery]\u00A7r";
 
     private Map<String, ICommand> commands = new HashMap<>();
     private List<IRitual> rituals = new ArrayList<>();
@@ -31,8 +32,9 @@ public final class RedSorcery extends JavaPlugin {
         plugin = this;
         pm = getServer().getPluginManager();
         pm.registerEvents(new KillListener(), this);
+        pm.registerEvents(new RitualListener(), this);
         CommandHandler RedSorceryCommand = new CommandHandler();
-        PluginCommand command = getCommand("RedSorcery");
+        PluginCommand command = getCommand("redsorcery");
         command.setExecutor(RedSorceryCommand);
         command.setTabCompleter(RedSorceryCommand);
         command.permissionMessage(Component.text("\u00A74 You do not have permission to execute this command"));
@@ -63,14 +65,14 @@ public final class RedSorcery extends JavaPlugin {
 
     private void registerPermissions() {
         for (String command : getCommands().keySet()) {
-            pm.addPermission(new Permission("redsorcery." + getCommands().get(command).getPermission()));
+            pm.addPermission(new Permission("redsorcery.commands." + getCommands().get(command).getPermission()));
         }
         pm.addPermission(new Permission("redsorcery.commands.*"));
         pm.addPermission(new Permission("redsorcery.rituals.*"));
         pm.addPermission(new Permission("redsorcery.*"));
         pm.addPermission(new Permission("redsorcery"));
         for (IRitual ritual : getRituals()) {
-            pm.addPermission(new Permission("redsorcery.ritual." + ritual.getPermission()));
+            pm.addPermission(new Permission("redsorcery.rituals." + ritual.getPermission()));
         }
     }
 
