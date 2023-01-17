@@ -1,10 +1,12 @@
 package io.github.sarahgreywolf.redsorcery.rituals;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -56,7 +58,7 @@ public class HaltRain implements IRitual {
     }
 
     @Override
-    public void execute(Player ritualActivator, World world, ItemStack[] stacks) {
+    public void execute(Player ritualActivator, World world, Collection<Entity> entities) {
         if (world.hasStorm())
             world.setWeatherDuration(1);
     }

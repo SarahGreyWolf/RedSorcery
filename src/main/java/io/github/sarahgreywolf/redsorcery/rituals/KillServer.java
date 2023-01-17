@@ -1,0 +1,122 @@
+package io.github.sarahgreywolf.redsorcery.rituals;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
+
+import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.World;
+import org.bukkit.block.Skull;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.permissions.PermissionAttachmentInfo;
+
+import net.kyori.adventure.text.Component;
+import io.github.sarahgreywolf.redsorcery.RedSorcery;
+import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
+
+public class KillServer implements IRitual {
+
+    public final RedSorcery plugin = RedSorcery.plugin;
+
+    @Override
+    public String getName() {
+        return "Kill Server";
+    }
+
+    @Override
+    public Map<Character, Material> getShapeIngredients() {
+        Map<Character, Material> ingredients = new HashMap<>();
+        ingredients.put('A', Material.AIR);
+        ingredients.put('C', Material.NETHERITE_BLOCK);
+        ingredients.put('B', Material.ANCIENT_DEBRIS);
+        ingredients.put('R', Material.DIAMOND_BLOCK);
+
+        return ingredients;
+    }
+
+    @Override
+    public char[][][] getShape() {
+        char[][][] shape = {
+                // First Layer (say ground level)
+                {
+                        // Z from top to bottom
+                        { ' ', 'C', 'C', 'C', 'C', 'C', ' ', },
+                        { 'C', ' ', ' ', 'R', ' ', ' ', 'C', },
+                        { 'C', ' ', 'R', 'R', 'R', ' ', 'C', },
+                        { 'C', ' ', ' ', 'X', ' ', ' ', 'C', },
+                        { 'C', ' ', ' ', 'R', ' ', ' ', 'C', },
+                        { 'C', ' ', ' ', 'R', ' ', ' ', 'C', },
+                        { ' ', 'C', 'C', 'C', 'C', 'C', ' ', }
+                },
+                // Second Layer (1 block above last)
+                {
+                        { ' ', 'R', 'R', 'R', 'R', 'R', ' ' },
+                        { 'R', ' ', 'B', 'A', 'B', ' ', 'R' },
+                        { 'R', ' ', 'A', 'A', 'A', ' ', 'R' },
+                        { 'R', ' ', 'B', 'Y', 'B', ' ', 'R' },
+                        { 'R', ' ', 'B', 'A', 'B', ' ', 'R' },
+                        { 'R', ' ', 'B', 'A', 'B', ' ', 'R' },
+                        { ' ', 'R', 'R', 'R', 'R', 'R', ' ' }
+                }
+        };
+        return shape;
+    }
+
+    @Override
+    public void execute(Player ritualActivator, World world, Collection<Entity> entities) {
+        ItemStack head = null;
+        for (Entity entity : entities) {
+            if (entity.getType() != EntityType.DROPPED_ITEM)
+                continue;
+            Item item = (Item) entity;
+            if (item.getItemStack().getType() != Material.PLAYER_HEAD)
+                continue;
+            head = item.getItemStack();
+        }
+        if (head == null) {
+            ritualActivator.sendMessage(Component.text(RedSorcery.prefix + " No player head was found"));
+            return;
+        }
+        SkullMeta meta = (SkullMeta) head.getItemMeta();
+        // The permission required by the owner of the head in order for this ritual to
+        // work
+        OfflinePlayer player = meta.getOwningPlayer();
+        if (player == null || player.getPlayer() == null) {
+            ritualActivator
+                    .sendMessage(Component.text(RedSorcery.prefix + " The owner of the head does not have permission"));
+            return;
+        }
+        if (player.getPlayer().hasPermission("redsorcery.rituals.killserver.head")) {
+            RedSorcery.plugin.getServer().savePlayers();
+            for (World world_s : RedSorcery.plugin.getServer().getWorlds()) {
+                world_s.save();
+            }
+            RedSorcery.plugin.getServer().shutdown();
+        } else
+            ritualActivator
+                    .sendMessage(Component.text(RedSorcery.prefix + " The owner of the head does not have permission"));
+    }
+
+    @Override
+    public String getPermission() {
+        return "killserver";
+    }
+
+    @Override
+    public String help() {
+        return "Kills the server";
+    }
+
+    @Override
+    public ItemStack getActivationItem() {
+        return new ItemStack(Material.PLAYER_HEAD);
+    }
+
+}
