@@ -83,13 +83,10 @@ public class RitualListener implements Listener {
                 }
             }
 
-            Collection<Entity> entities = evt.getLocation().getNearbyEntities(lineLengthX / 2, shape.length / 2,
-                    lineLengthZ / 2);
-            for (Entity entity : entities) {
-                plugin.getLogger().info(entity.getName());
-            }
+            Collection<Entity> entities = evt.getLocation().getNearbyEntities((lineLengthX / 2) + 1,
+                    (shape.length / 2) + 1,
+                    (lineLengthZ / 2) + 1);
 
-            plugin.getLogger().info("FOUND THE RITUAL " + ritual.getName());
             ritual.execute(activator, evt.getWorld(), entities);
         }
     }

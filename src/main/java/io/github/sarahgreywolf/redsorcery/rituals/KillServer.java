@@ -3,21 +3,18 @@ package io.github.sarahgreywolf.redsorcery.rituals;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
-import org.bukkit.block.Skull;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
-import org.bukkit.permissions.PermissionAttachmentInfo;
-
 import net.kyori.adventure.text.Component;
+
 import io.github.sarahgreywolf.redsorcery.RedSorcery;
 import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
 
