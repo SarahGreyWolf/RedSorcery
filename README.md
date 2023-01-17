@@ -42,7 +42,7 @@ Second Layer (1 block above last)\
 { 'R', 'R', 'A', 'R', 'R' },\
 { ' ', 'R', 'R', 'R', ' ' }
 ## Kill Server
-This ritual will stop the server running, to activate it the player head of a player with the correct permissions (listed below) is required to be thrown into the area.
+This ritual will stop the server running, to activate it, the player head of a player with the correct permissions (listed above) is required to be thrown into the area.
 ![Kill Server Layout level 0](assets/kill_server_level0.png)
 ![Kill Server Layout level 1](assets/kill_server_level1.png)
 
