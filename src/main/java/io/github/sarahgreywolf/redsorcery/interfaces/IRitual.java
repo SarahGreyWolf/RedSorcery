@@ -19,9 +19,10 @@ public interface IRitual {
 
     ItemStack getActivationItem();
 
+    // Has to be square
     char[][][] getShape();
 
-    void execute(Player ritualActivator, World world, ItemStack[] stacks, Component permissionMessage);
+    void execute(Player ritualActivator, World world, ItemStack[] stacks);
 
     String getPermission();
 
