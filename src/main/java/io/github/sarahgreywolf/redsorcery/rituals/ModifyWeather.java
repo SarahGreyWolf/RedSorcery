@@ -7,16 +7,18 @@ import java.util.Map;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
 
-public class HaltRain implements IRitual {
+public class ModifyWeather implements IRitual {
 
     @Override
     public String getName() {
-        return "Halt Rain";
+        return "Modify Weather";
     }
 
     @Override
@@ -59,23 +61,34 @@ public class HaltRain implements IRitual {
 
     @Override
     public void execute(Player ritualActivator, World world, Collection<Entity> entities) {
+        for (Entity entity : entities) {
+            if (entity.getType() != EntityType.DROPPED_ITEM)
+                continue;
+            Item item = (Item) entity;
+            if (item.getItemStack().getType() == Material.WATER_BUCKET && !world.hasStorm()) {
+                world.setStorm(true);
+                world.setThundering(false);
+                item.setItemStack(new ItemStack(Material.BUCKET));
+                return;
+            }
+        }
         if (world.hasStorm())
             world.setWeatherDuration(1);
     }
 
     @Override
     public String getPermission() {
-        return "haltrain";
+        return "modweather";
     }
 
     @Override
     public String help() {
-        return "Can be used to halt the rain";
+        return "Can be used to halt or start the rain";
     }
 
     @Override
     public ItemStack getActivationItem() {
-        return new ItemStack(Material.DIAMOND);
+        return null;
     }
 
 }

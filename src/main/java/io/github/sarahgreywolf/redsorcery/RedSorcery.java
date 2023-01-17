@@ -2,7 +2,6 @@ package io.github.sarahgreywolf.redsorcery;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.bukkit.command.PluginCommand;
@@ -16,7 +15,7 @@ import io.github.sarahgreywolf.redsorcery.interfaces.ICommand;
 import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
 import io.github.sarahgreywolf.redsorcery.listeners.KillListener;
 import io.github.sarahgreywolf.redsorcery.listeners.RitualListener;
-import io.github.sarahgreywolf.redsorcery.rituals.HaltRain;
+import io.github.sarahgreywolf.redsorcery.rituals.ModifyWeather;
 import io.github.sarahgreywolf.redsorcery.rituals.KillServer;
 
 public final class RedSorcery extends JavaPlugin {
@@ -87,7 +86,7 @@ public final class RedSorcery extends JavaPlugin {
     }
 
     private void registerRituals() {
-        addRitual(new HaltRain());
+        addRitual(new ModifyWeather());
         addRitual(new KillServer());
     }
 

@@ -68,16 +68,17 @@ public class KillServer implements IRitual {
 
     @Override
     public void execute(Player ritualActivator, World world, Collection<Entity> entities) {
+        Item headItem = null;
         ItemStack head = null;
         for (Entity entity : entities) {
             if (entity.getType() != EntityType.DROPPED_ITEM)
                 continue;
-            Item item = (Item) entity;
-            if (item.getItemStack().getType() != Material.PLAYER_HEAD)
+            headItem = (Item) entity;
+            if (headItem.getItemStack().getType() != Material.PLAYER_HEAD)
                 continue;
-            head = item.getItemStack();
+            head = headItem.getItemStack();
         }
-        if (head == null) {
+        if (headItem == null || head == null) {
             ritualActivator.sendMessage(Component.text(RedSorcery.prefix + " No player head was found"));
             return;
         }
@@ -91,6 +92,7 @@ public class KillServer implements IRitual {
             return;
         }
         if (player.getPlayer().hasPermission("redsorcery.rituals.killserver.head")) {
+            headItem.remove();
             RedSorcery.plugin.getServer().savePlayers();
             for (World world_s : RedSorcery.plugin.getServer().getWorlds()) {
                 world_s.save();

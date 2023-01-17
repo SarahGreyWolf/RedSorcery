@@ -25,9 +25,9 @@ public class RitualListener implements Listener {
         Player activator = evt.getPlayer();
         Block block = evt.getBlocks().get(0).getBlock();
         // Check if the block beneath the sapling is a Moss Block
-        if (block.getRelative(0, -1, 0).getType() != Material.MOSS_BLOCK)
-            return;
         Block moss = block.getRelative(0, -1, 0);
+        if (moss.getType() != Material.MOSS_BLOCK)
+            return;
         // Make sure it was a sapling that grew
         if (!(block.getBlockData() instanceof Sapling))
             return;
