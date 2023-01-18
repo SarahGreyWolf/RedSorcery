@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery.rituals;
+package dev.sarahgreywolf.redsorcery.rituals;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -15,8 +15,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import net.kyori.adventure.text.Component;
 
-import io.github.sarahgreywolf.redsorcery.RedSorcery;
-import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
+import dev.sarahgreywolf.redsorcery.RedSorcery;
+import dev.sarahgreywolf.redsorcery.interfaces.IRitual;
 
 public class KillServer implements IRitual {
 

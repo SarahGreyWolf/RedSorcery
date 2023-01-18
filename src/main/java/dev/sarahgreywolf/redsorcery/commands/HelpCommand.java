@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery.commands;
+package dev.sarahgreywolf.redsorcery.commands;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 
 import net.kyori.adventure.text.Component;
 
-import io.github.sarahgreywolf.redsorcery.interfaces.ICommand;
-import io.github.sarahgreywolf.redsorcery.RedSorcery;
+import dev.sarahgreywolf.redsorcery.interfaces.ICommand;
+import dev.sarahgreywolf.redsorcery.RedSorcery;
 
 public class HelpCommand implements ICommand {
     private static final RedSorcery plugin = RedSorcery.plugin;

@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery.rituals;
+package dev.sarahgreywolf.redsorcery.rituals;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
+import dev.sarahgreywolf.redsorcery.interfaces.IRitual;
 
 public class ModifyWeather implements IRitual {
 

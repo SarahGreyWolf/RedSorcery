@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery.listeners;
+package dev.sarahgreywolf.redsorcery.listeners;
 
 import java.util.Collection;
 
@@ -12,9 +12,9 @@ import org.bukkit.block.data.type.Sapling;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-import io.github.sarahgreywolf.redsorcery.RedSorcery;
-import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
-import io.github.sarahgreywolf.redsorcery.util.ShapePos;
+import dev.sarahgreywolf.redsorcery.RedSorcery;
+import dev.sarahgreywolf.redsorcery.interfaces.IRitual;
+import dev.sarahgreywolf.redsorcery.util.ShapePos;
 
 public class RitualListener implements Listener {
 

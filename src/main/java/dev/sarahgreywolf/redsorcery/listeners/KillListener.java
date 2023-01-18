@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery.listeners;
+package dev.sarahgreywolf.redsorcery.listeners;
 
 import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;

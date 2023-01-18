@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery.interfaces;
+package dev.sarahgreywolf.redsorcery.interfaces;
 
 import java.util.Collection;
 import java.util.Map;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.sarahgreywolf.redsorcery.util.ShapePos;
+import dev.sarahgreywolf.redsorcery.util.ShapePos;
 import net.kyori.adventure.text.Component;
 
 public interface IRitual {

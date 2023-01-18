@@ -1,11 +1,11 @@
-package io.github.sarahgreywolf.redsorcery.interfaces;
+package dev.sarahgreywolf.redsorcery.interfaces;
 
 import java.util.List;
 
 import org.bukkit.command.CommandSender;
 import net.kyori.adventure.text.Component;
 
-import io.github.sarahgreywolf.redsorcery.RedSorcery;
+import dev.sarahgreywolf.redsorcery.RedSorcery;
 
 public interface ICommand {
 

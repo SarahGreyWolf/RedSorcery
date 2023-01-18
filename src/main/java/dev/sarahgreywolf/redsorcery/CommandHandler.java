@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery;
+package dev.sarahgreywolf.redsorcery;
 
 import java.util.ArrayList;
 import java.util.List;

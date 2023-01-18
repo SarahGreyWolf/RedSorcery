@@ -1,6 +1,6 @@
 name: RedSorcery
 version: '${version}'
-main: io.github.sarahgreywolf.redsorcery.RedSorcery
+main: dev.sarahgreywolf.redsorcery.RedSorcery
 api-version: 1.19
 load: STARTUP
 author: sarahgreywolf

@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery.util;
+package dev.sarahgreywolf.redsorcery.util;
 
 public class ShapePos {
     private int X;

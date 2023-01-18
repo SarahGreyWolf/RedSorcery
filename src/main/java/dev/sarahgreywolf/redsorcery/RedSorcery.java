@@ -1,4 +1,4 @@
-package io.github.sarahgreywolf.redsorcery;
+package dev.sarahgreywolf.redsorcery;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,13 +10,13 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import net.kyori.adventure.text.Component;
 
-import io.github.sarahgreywolf.redsorcery.commands.HelpCommand;
-import io.github.sarahgreywolf.redsorcery.interfaces.ICommand;
-import io.github.sarahgreywolf.redsorcery.interfaces.IRitual;
-import io.github.sarahgreywolf.redsorcery.listeners.KillListener;
-import io.github.sarahgreywolf.redsorcery.listeners.RitualListener;
-import io.github.sarahgreywolf.redsorcery.rituals.ModifyWeather;
-import io.github.sarahgreywolf.redsorcery.rituals.KillServer;
+import dev.sarahgreywolf.redsorcery.commands.HelpCommand;
+import dev.sarahgreywolf.redsorcery.interfaces.ICommand;
+import dev.sarahgreywolf.redsorcery.interfaces.IRitual;
+import dev.sarahgreywolf.redsorcery.listeners.KillListener;
+import dev.sarahgreywolf.redsorcery.listeners.RitualListener;
+import dev.sarahgreywolf.redsorcery.rituals.ModifyWeather;
+import dev.sarahgreywolf.redsorcery.rituals.KillServer;
 
 public final class RedSorcery extends JavaPlugin {
 
