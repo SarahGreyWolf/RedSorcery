@@ -19,8 +19,6 @@ public interface IRitual {
 
     Map<Character, Material> getShapeIngredients();
 
-    ItemStack getActivationItem();
-
     // Has to be square
     char[][][] getShape();
 

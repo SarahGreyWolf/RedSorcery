@@ -113,9 +113,4 @@ public class KillServer implements IRitual {
         return "Kills the server";
     }
 
-    @Override
-    public ItemStack getActivationItem() {
-        return new ItemStack(Material.PLAYER_HEAD);
-    }
-
 }

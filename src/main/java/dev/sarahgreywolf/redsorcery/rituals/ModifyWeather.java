@@ -86,9 +86,4 @@ public class ModifyWeather implements IRitual {
         return "Can be used to halt or start the rain";
     }
 
-    @Override
-    public ItemStack getActivationItem() {
-        return null;
-    }
-
 }
