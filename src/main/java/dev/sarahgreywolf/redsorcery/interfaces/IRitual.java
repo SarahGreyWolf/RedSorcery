@@ -3,15 +3,13 @@ package dev.sarahgreywolf.redsorcery.interfaces;
 import java.util.Collection;
 import java.util.Map;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import dev.sarahgreywolf.redsorcery.util.ShapePos;
-import net.kyori.adventure.text.Component;
 
 public interface IRitual {
 
@@ -22,7 +20,7 @@ public interface IRitual {
     // Has to be square
     char[][][] getShape();
 
-    void execute(Player ritualActivator, World world, Collection<Entity> entities);
+    void execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities);
 
     String getPermission();
 

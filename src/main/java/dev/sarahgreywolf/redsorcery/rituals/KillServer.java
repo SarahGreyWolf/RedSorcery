@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
@@ -67,7 +68,7 @@ public class KillServer implements IRitual {
     }
 
     @Override
-    public void execute(Player ritualActivator, World world, Collection<Entity> entities) {
+    public void execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities) {
         Item headItem = null;
         ItemStack head = null;
         for (Entity entity : entities) {

@@ -86,8 +86,7 @@ public class RitualListener implements Listener {
             Collection<Entity> entities = evt.getLocation().getNearbyEntities((lineLengthX / 2) + 1,
                     (shape.length / 2) + 1,
                     (lineLengthZ / 2) + 1);
-
-            ritual.execute(activator, evt.getWorld(), entities);
+            ritual.execute(activator, evt.getLocation(), evt.getWorld(), entities);
         }
     }
 

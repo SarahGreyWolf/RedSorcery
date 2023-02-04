@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
@@ -60,7 +61,7 @@ public class ModifyWeather implements IRitual {
     }
 
     @Override
-    public void execute(Player ritualActivator, World world, Collection<Entity> entities) {
+    public void execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities) {
         for (Entity entity : entities) {
             if (entity.getType() != EntityType.DROPPED_ITEM)
                 continue;
