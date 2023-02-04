@@ -68,7 +68,7 @@ public class KillServer implements IRitual {
     }
 
     @Override
-    public void execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities) {
+    public boolean execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities) {
         Item headItem = null;
         ItemStack head = null;
         for (Entity entity : entities) {
@@ -81,7 +81,7 @@ public class KillServer implements IRitual {
         }
         if (headItem == null || head == null) {
             ritualActivator.sendMessage(Component.text(RedSorcery.prefix + " No player head was found"));
-            return;
+            return false;
         }
         SkullMeta meta = (SkullMeta) head.getItemMeta();
         // The permission required by the owner of the head in order for this ritual to
@@ -90,7 +90,7 @@ public class KillServer implements IRitual {
         if (player == null || player.getPlayer() == null) {
             ritualActivator
                     .sendMessage(Component.text(RedSorcery.prefix + " The owner of the head does not have permission"));
-            return;
+            return false;
         }
         if (player.getPlayer().hasPermission("redsorcery.rituals.killserver.head")) {
             headItem.remove();
@@ -102,6 +102,7 @@ public class KillServer implements IRitual {
         } else
             ritualActivator
                     .sendMessage(Component.text(RedSorcery.prefix + " The owner of the head does not have permission"));
+        return true;
     }
 
     @Override

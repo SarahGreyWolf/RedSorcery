@@ -61,7 +61,7 @@ public class ModifyWeather implements IRitual {
     }
 
     @Override
-    public void execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities) {
+    public boolean execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities) {
         for (Entity entity : entities) {
             if (entity.getType() != EntityType.DROPPED_ITEM)
                 continue;
@@ -70,11 +70,13 @@ public class ModifyWeather implements IRitual {
                 world.setStorm(true);
                 world.setThundering(false);
                 item.setItemStack(new ItemStack(Material.BUCKET));
-                return;
+                return false;
             }
         }
         if (world.hasStorm())
             world.setWeatherDuration(1);
+
+        return true;
     }
 
     @Override

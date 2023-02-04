@@ -16,6 +16,7 @@ import dev.sarahgreywolf.redsorcery.interfaces.IRitual;
 import dev.sarahgreywolf.redsorcery.listeners.KillListener;
 import dev.sarahgreywolf.redsorcery.listeners.RitualListener;
 import dev.sarahgreywolf.redsorcery.rituals.ModifyWeather;
+import dev.sarahgreywolf.redsorcery.rituals.Enchant;
 import dev.sarahgreywolf.redsorcery.rituals.KillServer;
 
 public final class RedSorcery extends JavaPlugin {
@@ -88,6 +89,7 @@ public final class RedSorcery extends JavaPlugin {
     private void registerRituals() {
         addRitual(new ModifyWeather());
         addRitual(new KillServer());
+        addRitual(new Enchant());
     }
 
 }

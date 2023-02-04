@@ -20,7 +20,7 @@ public interface IRitual {
     // Has to be square
     char[][][] getShape();
 
-    void execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities);
+    boolean execute(Player ritualActivator, Location pos, World world, Collection<Entity> entities);
 
     String getPermission();
 

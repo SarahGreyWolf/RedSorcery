@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import dev.sarahgreywolf.redsorcery.RedSorcery;
 import dev.sarahgreywolf.redsorcery.interfaces.IRitual;
 import dev.sarahgreywolf.redsorcery.util.ShapePos;
+import net.kyori.adventure.text.Component;
 
 public class RitualListener implements Listener {
 
@@ -22,6 +23,8 @@ public class RitualListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onTreeGrow(StructureGrowEvent evt) {
+        if (evt.getPlayer() == null)
+            return;
         Player activator = evt.getPlayer();
         Block block = evt.getBlocks().get(0).getBlock();
         // Check if the block beneath the sapling is a Moss Block
@@ -31,6 +34,8 @@ public class RitualListener implements Listener {
         // Make sure it was a sapling that grew
         if (!(block.getBlockData() instanceof Sapling))
             return;
+
+        boolean foundRitual = false;
 
         // Try to find the correct ritual
         ritual: for (IRitual ritual : plugin.getRituals()) {
@@ -82,12 +87,18 @@ public class RitualListener implements Listener {
                     }
                 }
             }
+            foundRitual = true;
 
             Collection<Entity> entities = evt.getLocation().getNearbyEntities((lineLengthX / 2) + 1,
                     (shape.length / 2) + 1,
                     (lineLengthZ / 2) + 1);
-            ritual.execute(activator, evt.getLocation(), evt.getWorld(), entities);
+            boolean success = ritual.execute(activator, evt.getLocation(), evt.getWorld(), entities);
+            evt.setCancelled(!success);
         }
+
+        if (!foundRitual)
+            activator.sendMessage(
+                    Component.text(RedSorcery.prefix + " No ritual found, please check the structure and try again"));
     }
 
 }
