@@ -11,6 +11,7 @@ These permissions allow the use of rituals
 | Modify Weather | redsorcery.rituals.modweather | |
 | Kill Server | redsorcery.rituals.killserver | |
 | Kill Server Head | redsorcery.rituals.killserver.head | This permission needs to be given to any player/group that when their head is sacrified to the kill server ritual it is allowed to function |
+| Ritual of Enchantment | redsorcery.rituals.enchant | |
 
 # Rituals
 All Rituals are activated by growing a sapling on the moss block.\
