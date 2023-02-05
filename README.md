@@ -65,6 +65,9 @@ Consumes the amethyst clusters every operation.
 ![Ritual of Enchantment Layout level 6](assets/enchantment_level6.png)
 ![Ritual of Enchantment Layout level 7](assets/enchantment_level7.png)
 ![Ritual of Enchantment Layout level 8](assets/enchantment_level8.png)
+
+Example of the stairs found replicated around the structure\
+![Ritual of Enchantment Stairs](assets/enchantment_stairs.png)
 </details>
 <details><summary>Text Based Instructions</summary>
 

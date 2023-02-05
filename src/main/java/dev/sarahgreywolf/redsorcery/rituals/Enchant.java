@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -21,11 +20,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
 import org.bukkit.enchantments.Enchantment;
+import net.kyori.adventure.text.Component;
 
 import dev.sarahgreywolf.redsorcery.RedSorcery;
 import dev.sarahgreywolf.redsorcery.interfaces.IRitual;
 import dev.sarahgreywolf.redsorcery.util.ShapePos;
-import net.kyori.adventure.text.Component;
 
 public class Enchant implements IRitual {
 
